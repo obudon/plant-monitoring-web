@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<head>
+
+<head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HerbWise - Plant Monitoring</title>
-    <link rel="stylesheet" href="css/main.css">
+    <title>HerbWise</title>
+    <link rel="stylesheet" href="/css/main.css">
     <style>
         body {
             background: url('assets/images/sky_1.png') no-repeat bottom center;
@@ -13,7 +14,6 @@
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <!-- First Section -->
@@ -39,7 +39,7 @@
         <!-- Info Section (((Icons))) -->
         <div class="info-section">
             <div id="plant-louie">
-                <img src="assets\images\1st_icon.png" alt="Plant Louie">
+                <img src="/assets/images/1st_icon.png" alt="Plant Louie">
             </div>
             <div class="box">
                 <img src="assets\images\2nd_icon.png" alt="Sensors">
@@ -60,7 +60,8 @@
                 </div>
                 <div class="text-box">
                     <div class="button-container">
-                        <button class="my-garden-btn">My Garden</button>
+                        <!-- onclick="location.href='{% url 'css/dashboard.html' %}'" -->
+                        <button class="my-garden-btn" onclick="location.href='pages/gardens.html'">My Garden</button>
                     </div>
                     <p class="bottom-text-box">We take care of your plants for you!</p>
                     <img src="assets\images\wateringcan.png" alt="Watering Icon" class="watering-icon">

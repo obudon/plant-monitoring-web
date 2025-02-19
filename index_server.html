@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            background: url('assets/images/sky_1.png') no-repeat bottom center;
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+    </style>
+    <link rel="stylesheet" href="css/main.css">   
+    {% csrf_token %}
+    <title>HerbWise</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- First Section -->
+        <header>
+            <nav>
+                <a href="{{ url_for('login') }}">Log in</a>
+                <span>|</span>
+                <a href="{{ url_for('register') }}">Register</a>
+            </nav>
+        </header>
+        <div class="main-content">
+            <div class="main-title">
+                <h1>Herb <br> <span class="spaced-word">Wise</span></h1>
+            </div>
+            <div class="description">
+                <p>With our help you can take caring after your plants on next level: sensors will let you know
+                    real-time
+                    data about each plant and water them for you to provide the best environment!</p>
+            </div>
+        </div>
+
+        <!-- Info Section (((Icons))) -->
+        <div class="info-section">
+            <div id="plant-louie">
+                <img src="assets\images\1st_icon.png" alt="Plant Louie">
+            </div>
+            <div class="box">
+                <img src="assets\images\2nd_icon.png" alt="Sensors">
+            </div>
+            <div class="box">
+                <img src="assets\images\3rd_icon.png" alt="Upload">
+            </div>
+            <div class="box">
+                <img src="assets\images\4th_icon.png" alt="Notifications">
+            </div>
+        </div>
+
+        <!-- Third Section -->
+        <div class="section">
+            <div class="plant-content">
+                <div class="plant-container">
+                    <img src="assets\images\main_plant.png" alt="Plant" class="plant-image">
+                </div>
+                <div class="text-box">
+                    <div class="button-container">
+                        <!-- onclick="location.href='{% url 'css/dashboard.html' %}'" -->
+                        <button class="my-garden-btn">My Garden</button>
+                    </div>
+                    <p class="bottom-text-box">We take care of your plants for you!</p>
+                    <img src="assets\images\wateringcan.png" alt="Watering Icon" class="watering-icon">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script>
+        
+        function deleteRecord(recordId) {
+            if (confirm("Are you sure you want to delete this record?")) {
+                // Get the CSRF token from the page
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        
+                fetch(`/delete_record/${recordId}/`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRFToken': csrfToken  // Add CSRF token to headers
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();  // Reload to reflect changes
+                    } else {
+                        alert("Error deleting record.");
+                    }
+                });
+            }
+        }
+        
+    </script>
+
+    <script>
+        
+        const data = {{ items|safe }};  // Fetch data from Django
+        const chartCanvas = document.getElementById('myChart');
+        const dataSelect = document.getElementById('dataSelect');
+    
+        // Extract unique keys and exclude 'timestamp'
+        const uniqueKeys = [...new Set(data.flatMap(Object.keys))].filter(key => key !== 'timestamp');
+    
+        // Populate the dropdown
+        uniqueKeys.forEach(key => {
+            const option = document.createElement('option');
+            option.value = key;
+            option.text = key;
+            dataSelect.appendChild(option);
+        });
+    
+        let myChart; // Declare chart variable globally
+    
+        function createChart(selectedKey) {
+            const chartData = data.map(item => ({
+                x: new Date(item.timestamp), // Convert timestamp properly
+                y: item[selectedKey] // Get the selected metric
+            }));
+    
+            const chartConfig = {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: selectedKey,
+                        data: chartData,
+                        borderColor: 'blue',
+                        borderWidth: 1,
+                        fill: false,
+                        tension: 0.4,
+                        pointRadius: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            type: 'time', // Time-based x-axis
+                            
+                            title: { display: true, text: 'Timestamp' }
+                        },
+                        y: {
+                            title: { display: true, text: selectedKey }
+                        }
+                    }
+                }
+            };
+    
+            if (myChart) {
+                myChart.destroy(); // Destroy old chart before creating a new one
+            }
+            myChart = new Chart(chartCanvas, chartConfig);
+        }
+    
+        // Initial chart creation (default to first metric)
+        createChart(uniqueKeys[0]);
+    
+        // Update chart instantly when dropdown changes
+        dataSelect.addEventListener('change', () => {
+            createChart(dataSelect.value);
+        });
+    </script> -->
+</body>

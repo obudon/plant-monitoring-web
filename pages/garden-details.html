@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden Details</title>
+    <link rel="stylesheet" href="/css/garden-details.css">
+    <style>
+        body {
+            background-image: url('/assets/icon/background4.png');
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header displaying the garden name -->
+    <header>
+        <h1 id="garden-name">Garden Name</h1> <!-- This will be dynamically updated -->
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/pages/gardens.html">Back</a>
+            <!-- <button onclick="location.href='/index.html'">Home</a> -->
+        </nav>
+    </header>
+
+    <main>
+        <!-- Container for plant cards -->
+        <section id="plant-container">
+            <section class="plant-card" data-garden-name="My first plant 1">
+                <img class="plant-settings" src="/assets/icon/settings-icon.png" alt="Settings">
+                <img src="/assets/icon/plant7.png" alt="Plant">
+                <figcaption>My first plant 1</figcaption>
+            </section>
+            <!-- Plant cards will be added dynamically here -->
+
+            <!-- Add Plant Button -->
+            <section id="add-plant-card" class="plant-card">
+                <img src="/assets/icon/add-bookmark.png" alt="Add Plant">
+                <figcaption>Add Plant</figcaption>
+            </section>
+        </section>
+    </main>
+
+    <script src="/js/garden-details.js"></script>
+</body>
+
+</html>
